@@ -1,6 +1,6 @@
-# Soda Lib
+# SodaLib
 
-Soda Lib refers to *Sonificating Data Library*, which is an open source multipurpose sonification tool for designers, programmers and creative practicioners. Soda Lib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc.
+*Sonificating Data Library*, an open source multipurpose sonification tool for designers, programmers and creative practicioners. Soda Lib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc.
 
 ## Dependencies
 
@@ -12,7 +12,7 @@ The *lib* folder has everything that is related to the audio engine, it is a col
 
 ## Functions
 
-Soda Lib is communicating with libPd itself via some simple utility functions. When the program is started, it is generating the needed patches (sound generators) dynamically. When the program runs, it communicates with these generators with simple messages. Soda objects have a "set" function, individual generators can be addressed by calling this function with the generator's name as its argument. Pitch (shift), volume and pan can be modified at the moment. See the "Example" project for more details on how to initiate & address Soda objects. Use OpenFramework's project generator tool to create a project. Don't forget to add the [ofxPd](https://github.com/danomatika/ofxPd) addon to your project and set up the C flags as indicated. 
+SodaLib is communicating with libPd itself via some simple utility functions. When the program is started, it is generating the needed patches (sound generators) dynamically. When the program runs, it communicates with these generators with simple messages. Soda objects have a "set" function, individual generators can be addressed by calling this function with the generator's name as its argument. Pitch (shift), volume and pan can be modified at the moment. See the "Example" project for more details on how to initiate & address Soda objects. Use OpenFramework's project generator tool to create a project. Don't forget to add the [ofxPd](https://github.com/danomatika/ofxPd) addon to your project and set up the C flags as indicated. 
 
 ## Purpose
 
