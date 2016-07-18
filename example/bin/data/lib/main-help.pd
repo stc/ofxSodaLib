@@ -1,0 +1,133 @@
+#N canvas 219 23 1327 929 10;
+#X text 40 95 Licensed under GPLv3;
+#X text 43 126 ____________________________________________________________
+;
+#X text 37 22 ____________________________________________________________
+;
+#X text 43 154 Initialize:;
+#X obj 1035 145 loadbang;
+#X msg 1035 170 \; pd dsp 1;
+#X obj 892 402 pack f f f;
+#X obj 892 308 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 921 308 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 950 308 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 68 871 s pd-Object-Pool;
+#X text 644 193 Soda Generator Patch. Load and communicate with this
+if using Soda with libPd from other environments.;
+#X text 934 427 custom address of generated object;
+#X text 932 445 (there can be generated many from client code);
+#X obj 106 722 s genSample;
+#X obj 106 635 del 1;
+#X msg 106 615 bang;
+#X text 181 726 (needed for updating \$0-vars);
+#X obj 900 381 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 90 466 s saveSynths;
+#X obj 82 418 del 1;
+#X msg 82 396 bang;
+#X text 464 178 ___________________;
+#X text 465 224 ___________________;
+#X obj 893 428 s s1;
+#X msg 70 359 obj 10 10 blocks/synthesis/synthGenerator s1 triwave
+D s1-ch \;;
+#X msg 47 206 clear;
+#X text 45 173 1: clear existing blocks;
+#X text 47 814 3: save blocks for next time;
+#X msg 68 845 menusave;
+#X obj 47 228 s pd-Object-Pool;
+#X obj 70 495 s pd-Object-Pool;
+#X text 47 299 2: create blocks;
+#X text 69 337 Synthesizer (octave-differenced soundwaves);
+#X obj 71 747 s pd-Object-Pool;
+#X text 67 547 Sampler (polyphonic audio file);
+#X obj 471 407 s pd-Object-Pool;
+#X msg 470 362 obj 10 10 blocks/texture/textureGenerator s1 100 \;
+;
+#X text 467 335 Texture Object (filtered noise);
+#X text 474 656 Custom Object (empty \, use this to extend);
+#X obj 476 744 s pd-Object-Pool;
+#X text 1034 209 turn dsp on;
+#X text 159 300 (see readme file for message list structure);
+#X text 46 260 ____________________________________________________________
+;
+#X text 47 776 ____________________________________________________________
+;
+#X obj 175 495 s computeAudio;
+#X msg 175 464 s1 1;
+#X text 581 807 turn on / off dsp for each module;
+#X obj 155 440 t b b;
+#X obj 578 429 s computeAudio;
+#X msg 578 410 s1 1;
+#X msg 579 386 bang;
+#X obj 582 786 s computeAudio;
+#X msg 582 767 s1 1;
+#X msg 582 745 bang;
+#X obj 180 701 s computeAudio;
+#X msg 180 670 s1 1;
+#X obj 160 646 t b b;
+#X msg 476 719 obj 10 10 blocks/custom/customObjectGenerator s1 \;
+;
+#X text 475 679 Duplicate patch in "custom" folder \, give it a new
+name \, change accordingly in the following message box..;
+#X text 605 46 Note: object generation is easier to maintain from other
+client apps \, since opening / closing patches are hard with only Pd
+Vanilla. This patch is for demonstration purposes only \, for real
+usage \, please see the client app examples;
+#X obj 471 553 s pd-Object-Pool;
+#X obj 577 595 s computeAudio;
+#X msg 577 576 s1 1;
+#X msg 577 554 bang;
+#X text 471 474 Player Object (for long \, streaming audio files);
+#X msg 471 501 obj 10 10 blocks/playback/playerGenerator s1 sounds/sound.wav
+1 \;;
+#X text 994 293 use this formula for:;
+#X text 1043 308 - synthetiser;
+#X text 1044 323 - sampler;
+#X text 1046 340 - texture;
+#X text 38 74 stc@binaura.net / 2016 / www.binaura.net;
+#X msg 69 571 obj 10 10 blocks/sampling/samplerGenerator s1 sounds/sound.wav
+10 44100 \;;
+#X text 38 54 Sonificating Data (Soda) Library / Helper for main patch
+;
+#X obj 482 204 ../lib/main;
+#X text 968 399 shift / volume / pan;
+#X text 892 274 4: Send test data to generated objects;
+#X connect 4 0 5 0;
+#X connect 6 0 24 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 1;
+#X connect 8 0 18 0;
+#X connect 9 0 6 2;
+#X connect 9 0 18 0;
+#X connect 15 0 57 0;
+#X connect 16 0 15 0;
+#X connect 18 0 6 0;
+#X connect 20 0 48 0;
+#X connect 21 0 20 0;
+#X connect 25 0 21 0;
+#X connect 25 0 31 0;
+#X connect 26 0 30 0;
+#X connect 29 0 10 0;
+#X connect 37 0 36 0;
+#X connect 37 0 51 0;
+#X connect 46 0 45 0;
+#X connect 48 0 46 0;
+#X connect 48 1 19 0;
+#X connect 50 0 49 0;
+#X connect 51 0 50 0;
+#X connect 53 0 52 0;
+#X connect 54 0 53 0;
+#X connect 56 0 55 0;
+#X connect 57 0 56 0;
+#X connect 57 1 14 0;
+#X connect 58 0 40 0;
+#X connect 58 0 54 0;
+#X connect 63 0 62 0;
+#X connect 64 0 63 0;
+#X connect 66 0 61 0;
+#X connect 66 0 64 0;
+#X connect 72 0 16 0;
+#X connect 72 0 34 0;
