@@ -1,6 +1,6 @@
 # SodaLib
 
-*Sonificating Data Library*, an open source multipurpose sonification tool for designers, programmers and creative practicioners. Soda Lib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc.
+*Sonificating Data Library*, an open source multipurpose sonification tool for designers, programmers and creative practicioners. SodaLib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc.
 
 ## Dependencies
 
@@ -16,15 +16,11 @@ SodaLib is communicating with libPd itself via some simple utility functions. Wh
 
 ## Purpose
 
-A polyphonic sampling engine (based on [polySample](https://github.com/stc/polySample) ) is made for sonifying discrete data structures, while a simple synth and filtered noise can be used to sonify continuous data streams from low dimensional to multidimensional data sources. Each of these requires no musical knowledge. More, specific examples coming soon
-
-## In the wild
-
-The following projects are made with SodaLib, so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) -more on this soon
+A polyphonic sampling engine (based on [polySample](https://github.com/stc/polySample) ) is made for sonifying discrete data structures, while a simple synth and filtered noise can be used to sonify continuous data streams from low dimensional to multidimensional data sources. Each of these requires no musical knowledge. More, specific examples coming soon. The following projects are made with SodaLib, so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) ~~ more on this soon
 
 ## Todo
 
-Sonification examples. Chainable syntax. Migrate to Pd's clone object to generate & address patches dynamically.
+Sonification examples. Chainable syntax. Migrate to Pd's clone object to generate & address patches dynamically instead of the current method.
 
 -
 
