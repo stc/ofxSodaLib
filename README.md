@@ -16,11 +16,16 @@ SodaLib is communicating with libPd itself via some simple utility functions. Wh
 
 ## Purpose
 
-A polyphonic sampling engine (based on [polySample](https://github.com/stc/polySample) ) is made for sonifying discrete data structures, while a simple synth and filtered noise can be used to sonify continuous data streams from low dimensional to multidimensional data sources. Each of these requires no musical knowledge. More, specific examples coming soon. The following projects are made with SodaLib, so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) ~~ more on this soon
+A polyphonic sampling engine (based on [polySample](https://github.com/stc/polySample) ) is made for sonifying discrete data structures, while a simple synth and filtered noise can be used to sonify continuous data streams from low dimensional to multidimensional data sources. Each of these requires no or minimal musical knowledge. SodaLib's purpose to create a high level set of sonic tools for designers that focuses on data instead of musical concepts. While visualisation has really advance concepts for interpreting highly complex multidimensional data, sonification lacks these concepts, or these are accessible to creators with higher level musical (or dsp related) knowledge and experience. At the moment, SodaLib targets two key concepts of Sonification thus trying to make it available for a wider field of practitioners:
+    
+    - Event based sonification (earcons, auditory icons, etc) >> the *sampling* block comes handy when dealing with this concept, see *discrete-data-example*
+    - Parameter mapping (multidimensional, realtime sensory data, etc) >> the *synthesis* block comes handy when dealing with this concept, see *continuous-datastream-example*
+
+The following projects are made with SodaLib, so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) ~~ more on this soon
 
 ## Todo
 
-Sonification examples. Chainable syntax. Migrate to Pd's clone object to generate & address patches dynamically instead of the current method.
+More, specific sonification examples. Chainable syntax. Binaural sound positioning (useful for gaming & VR). Migrate to Pd's clone object to generate & address patches dynamically instead of the current method.
 
 -
 
