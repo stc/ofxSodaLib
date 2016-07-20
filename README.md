@@ -16,7 +16,7 @@ SodaLib is communicating with libPd itself via some simple utility functions. Wh
 
 ## Purpose
 
-SodaLib's purpose to create a high level set of sonic tools for designers that focuses on data instead of musical concepts. While visualisation has really advance concepts for interpreting highly complex multidimensional data, sonification lacks these concepts, or these are accessible to creators with higher level musical (or dsp related) knowledge and experience. At the moment, SodaLib targets two key concepts of Sonification thus trying to make it available for a wider field of practitioners:
+SodaLib's purpose is to create a high level set of sonic tools for designers that focuses on representing data instead of musical concepts (Thus, you won't see traditional dsp building blocks like filters, effects etc here). While visualisation has really advanced concepts for interpreting highly complex multidimensional data, sonification lacks most of these, and what's out there are mainly accessible to creators with higher level musical (or dsp related) knowledge and experience. At the moment, SodaLib targets two key concepts of Sonification thus trying to make it available for a wider field of practitioners:
     
 * Event based sonification (earcons, auditory icons, etc) >> the *sampling* block comes handy when dealing with this concept, see *discrete-data-example*
 * Parameter mapping (multidimensional, realtime sensory data, etc) >> the *synthesis* block comes handy when dealing with this concept, see *continuous-datastream-example*
