@@ -1,6 +1,6 @@
 # SodaLib
 
-*Sonificating Data Library*, an open source multipurpose sonification tool for designers, programmers and creative practicioners. SodaLib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc.
+*Sonificating Data Library*, an open source multipurpose sonification tool for designers, programmers and creative practicioners. SodaLib’s core functions are written in [libPd](http://www.libpd.cc). That means, it is easily embeddable into many creative coding environments, including c++, java, python, etc. It also means, it is cross platform (has been tested on OSX, iOS, Raspberry Pi).
 
 ## Dependencies
 

@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxSodaLib.h"
-#include "DataObject.h"
+#include "DataStream.h"
 
 class ofApp : public ofBaseApp{
 
@@ -27,9 +27,15 @@ class ofApp : public ofBaseApp{
         void audioRequested(float * output, int bufferSize, int nChannels);
     
         ofxSodaLib soda;
-        void playFirstSet();
-        void playSecondSet();
-        void playThirdSet();
-        vector < vector < DataObject* > > dataset;
-		
+        DataStream noiseData;
+        DataStream harmonicData;
+        DataStream brownianData;
+        DataStream gestureData;
+        DataStream linearData;
+    
+        ofVec2f pPos;
+        float speed;
+    
+        void listenToAll(int x, int y);
+        void switchCursor();
 };
