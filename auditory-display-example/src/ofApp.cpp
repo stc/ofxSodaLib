@@ -17,7 +17,7 @@ void ofApp::setup(){
             c.push_back( new Cell(j * ofGetWidth() / float(cols), i * ofGetHeight() / float(rows),
                         ofGetWidth() / float(cols), ofGetHeight() / float(rows)) );
             
-            // create filtered noise soda object with q-frequency 10
+            // create filtered noise soda object with q-frequency band width 60
             soda.createTexture("soda-" + ofToString(index), 60 );
             
             // setup shift for this object, based on its row index
