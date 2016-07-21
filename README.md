@@ -21,6 +21,8 @@ SodaLib's purpose is to create a high level set of sonic tools that is focusing 
 * Event based sonification (earcons, auditory icons, etc) >> the *sampling* block comes handy when dealing with this concept, see *discrete-data-example*
 * Parameter mapping (multidimensional, realtime sensory data, etc) >> the *synthesis* block comes handy when dealing with this concept, see *continuous-datastream-example*
 
+*auditory-display-example* shows how to create and access several hundreds of soda objects with just a few lines of code and use them for special sonification purposes, in this case, audio-cells of an (auditory) display with custom resolution: the volume of each cell is mapped to the cell's brightness value
+
 A polyphonic sampling engine (based on [polySample](https://github.com/stc/polySample) ) is made for the sampling block, while a simple, yet easily extendable synth and a filtered noise block can be used to sonify continuous data streams from low dimensional to multidimensional data sources. Each of these requires no or minimal musical knowledge. 
 
 The following projects are made with SodaLib so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) ~~ more on this soon
