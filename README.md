@@ -8,11 +8,13 @@
 
 ## Folder Structure
 
-The *lib* folder has everything that is related to the audio engine, it is a collection of [Pure Data](https://puredata.info/) patches. *main.pd* is called & opened upon every initialization. This patch handles the messages and synthesis parameters of the process. There are a few basic blocks that are generating sounds based on the messages sent to them. The *lib* folder must be placed into your project's data folder.
+The *lib* folder has everything that is related to the audio engine, it is a collection of [Pure Data](https://puredata.info/) patches. *main.pd* is called & opened upon every initialization. This patch handles the messages and synthesis parameters of the process. There are a few basic blocks that are generating and manipulating sounds based on the messages sent to them. The *lib* folder must be placed into your project's data folder.
 
 ## Functions
 
-SodaLib is communicating with libPd itself via some simple utility functions. When the program is started, it is generating the needed patches (sound generators) dynamically. When the program runs, it communicates with these generators with simple messages. Soda objects have a "set" function, individual generators can be addressed by calling this function with the generator's name as its argument. Pitch (shift), volume and pan can be modified at the moment, using a handy chainable syntax. See the "Example" project for more details on how to initiate & address Soda objects. Use OpenFramework's project generator tool to create a project. Don't forget to add the [ofxPd](https://github.com/danomatika/ofxPd) addon to your project and set up the C flags as indicated. 
+SodaLib is communicating with libPd itself via some simple utility functions. When the program is started, it is generating the needed patches (sound generators) dynamically. When the program runs, it communicates with these generators with simple messages. Soda objects have a "set" function, individual generators can be addressed by calling this function with the generator's name as its argument. As of writing, shift, volume, pan and depth of a sound can be modified simultaneously using a handy chainable syntax. It is best to think of these functions as (extendable) dimensions of the parameter-field of a sound. These can be mapped to different features (dimensions) in any kind of organized or live data sets. 
+
+See the "Example" project for more details on how to initiate & address Soda objects. Use OpenFramework's project generator tool to create a project. Don't forget to add the [ofxPd](https://github.com/danomatika/ofxPd) addon to your project and set up the C flags as indicated. 
 
 ## Purpose
 
