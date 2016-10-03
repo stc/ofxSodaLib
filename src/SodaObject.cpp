@@ -5,6 +5,7 @@ SodaObject::SodaObject(string name) {
     mName = name;
     mShift = 1;
     mVolume = 1;
+    mDepth = -1; // disabled by default to save cpu
     mPan = 0.5;
 }
 
@@ -17,13 +18,20 @@ void SodaObject::debug() {
 }
 
 SodaObject * SodaObject::shift(float shift) {
-    mShift = shift;
+    mShift = ofClamp(shift,0,1);
     return this;
 }
 
 SodaObject * SodaObject::volume(float volume) {
-    mVolume = volume;
-    if(volume == 0) play();
+    mVolume = ofClamp(volume,0,1);
+    if(volume == 0) {
+        play();
+    }
+    return this;
+}
+
+SodaObject * SodaObject::depth(float depth) {
+    mDepth = ofClamp(depth,0,1);
     return this;
 }
 
@@ -32,11 +40,12 @@ void SodaObject::play() {
     myList.addFloat(mShift);
     myList.addFloat(mVolume);
     myList.addFloat(mPan);
+    myList.addFloat(mDepth);
     ofxSodaLib::pd.sendList(mName, myList);
 }
  
 SodaObject * SodaObject::pan(float pan) {
-    mPan = pan;
+    mPan = ofClamp(pan,0,1);
     return this;
 }
 

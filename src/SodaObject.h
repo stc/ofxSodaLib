@@ -10,10 +10,12 @@ public:
     float mShift;
     float mVolume;
     float mPan;
+    float mDepth;
     
     SodaObject * shift(float shift);
     SodaObject * pan(float pan);
     SodaObject * volume(float volume);
+    SodaObject * depth(float depth);
     
     void play();
     void debug();
