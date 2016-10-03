@@ -11,11 +11,10 @@ public:
     float mVolume;
     float mPan;
     
-    void shift(float shift);
-    void shift(float shift, bool trigger);
-    void volume(float volume);
-    void volume(float volume, bool trigger);
-    void pan(float pan);
-    void pan(float pan, bool trigger);
+    SodaObject * shift(float shift);
+    SodaObject * pan(float pan);
+    SodaObject * volume(float volume);
+    
+    void play();
     void debug();
 };

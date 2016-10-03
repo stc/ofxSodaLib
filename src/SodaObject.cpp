@@ -16,63 +16,27 @@ void SodaObject::debug() {
     cout << mName << " shift: " << mShift << " volume: " << mVolume << " pan: " << mPan << endl;
 }
 
-void SodaObject::shift(float shift) {
+SodaObject * SodaObject::shift(float shift) {
     mShift = shift;
+    return this;
+}
+
+SodaObject * SodaObject::volume(float volume) {
+    mVolume = volume;
+    if(volume == 0) play();
+    return this;
+}
+
+void SodaObject::play() {
     List myList;
     myList.addFloat(mShift);
     myList.addFloat(mVolume);
     myList.addFloat(mPan);
     ofxSodaLib::pd.sendList(mName, myList);
-}
-
-void SodaObject::shift(float shift, bool trigger) {
-    mShift = shift;
-    if(trigger) {
-        List myList;
-        myList.addFloat(mShift);
-        myList.addFloat(mVolume);
-        myList.addFloat(mPan);
-        ofxSodaLib::pd.sendList(mName, myList);
-    }
-}
-
-void SodaObject::volume(float volume) {
-    mVolume = volume;
-    List myList;
-    myList.addFloat(mShift);
-    myList.addFloat(mVolume);
-    myList.addFloat(mPan);
-    ofxSodaLib::pd.sendList(mName, myList);
- }
- 
-void SodaObject::volume(float volume, bool trigger) {
-    mVolume = volume;
-    if(trigger) {
-        List myList;
-        myList.addFloat(mShift);
-        myList.addFloat(mVolume);
-        myList.addFloat(mPan);
-        ofxSodaLib::pd.sendList(mName, myList);
-    }
 }
  
-void SodaObject::pan(float pan) {
+SodaObject * SodaObject::pan(float pan) {
     mPan = pan;
-    List myList;
-    myList.addFloat(mShift);
-    myList.addFloat(mVolume);
-    myList.addFloat(mPan);
-    ofxSodaLib::pd.sendList(mName, myList);
-}
-
-void SodaObject::pan(float pan, bool trigger) {
-    mPan = pan;
-    if(trigger) {
-        List myList;
-        myList.addFloat(mShift);
-        myList.addFloat(mVolume);
-        myList.addFloat(mPan);
-        ofxSodaLib::pd.sendList(mName, myList);
-    }
+    return this;
 }
 

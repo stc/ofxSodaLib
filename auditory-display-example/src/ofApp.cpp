@@ -7,7 +7,7 @@ void ofApp::setup(){
     soda.clear();
 
     // populate cells of the display
-    rows = 10;
+    rows = 20;
     cols = 10;
     int index = 0;
     
@@ -17,8 +17,8 @@ void ofApp::setup(){
             c.push_back( new Cell(j * ofGetWidth() / float(cols), i * ofGetHeight() / float(rows),
                         ofGetWidth() / float(cols), ofGetHeight() / float(rows)) );
             
-            // create filtered noise soda object with q-frequency band width 60
-            soda.createTexture("soda-" + ofToString(index), 60 );
+            // create filtered noise soda object with q-frequency 40
+            soda.createTexture("soda-" + ofToString(index), 40 );
             
             // setup shift for this object, based on its row index
             soda.set("soda-" + ofToString(index))->shift(ofMap(i/float(rows),0,1,0.6,0.2));
@@ -42,7 +42,7 @@ void ofApp::draw(){
     for (auto cellRow : cells) {
         for(auto cell : cellRow) {
             cell->display(ofVec2f(mouseX,mouseY));
-            soda.set("soda-" + ofToString(index))->volume(cell->brightness);
+            soda.set("soda-" + ofToString(index))->volume(cell->brightness)->play();
             index++;
         }
     }

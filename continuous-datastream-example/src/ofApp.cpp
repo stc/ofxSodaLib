@@ -30,32 +30,27 @@ void ofApp::update(){
     // this example stands here for clarity
     
     if(noiseData.mCursorOver) {
-        soda.set("noise")->volume(0.8, false);
-        soda.set("noise")->shift(noiseData.mValue * 0.8);
+        soda.set("noise")->volume(0.8)->shift(noiseData.mValue * 0.8)->play();
     } else {
         soda.set("noise")->volume(0);
     }
     if(harmonicData.mCursorOver) {
-        soda.set("harmonic")->volume(0.8, false);
-        soda.set("harmonic")->shift(harmonicData.mValue * 0.8);
+        soda.set("harmonic")->volume(0.8)->shift(harmonicData.mValue * 0.8)->play();
     } else {
         soda.set("harmonic")->volume(0);
     }
     if(brownianData.mCursorOver) {
-        soda.set("brownian")->volume(0.8, false);
-        soda.set("brownian")->shift(brownianData.mValue * 0.8);
+        soda.set("brownian")->volume(0.8)->shift(brownianData.mValue * 0.8)->play();
     } else {
         soda.set("brownian")->volume(0);
     }
     if(gestureData.mCursorOver) {
-        soda.set("gesture")->volume(0.8, false);
-        soda.set("gesture")->shift(gestureData.mValue * 0.8);
+        soda.set("gesture")->volume(0.8)->shift(gestureData.mValue * 0.8)->play();
     } else {
         soda.set("gesture")->volume(0);
     }
     if(linearData.mCursorOver) {
-        soda.set("linear")->volume(0.8, false);
-        soda.set("linear")->shift(linearData.mValue * 0.8);
+        soda.set("linear")->volume(0.8)->shift(linearData.mValue * 0.8)->play();
     } else {
         soda.set("linear")->volume(0);
     }

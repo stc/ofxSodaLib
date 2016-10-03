@@ -94,9 +94,9 @@ void ofApp::playFirstSet() {
     for(auto data : dataset[0]) {
         if(data->mPos.distance(ofVec2f(mouseX,data->mPos.y)) < data->mSize) {
             if(data->canPlay) {
-                soda.set("s0")->volume(0.4, false);
-                soda.set("s0")->pan(data->mPos.x/float(ofGetWidth()), false);
-                soda.set("s0")->shift(ofMap(data->mPos.y,0,100,20,2));
+                float panValue = data->mPos.x/float(ofGetWidth());
+                float shiftValue = ofMap(data->mPos.y,0,100,20,2);
+                soda.set("s0")->volume(0.4)->pan(panValue)->shift(shiftValue)->play();
                 data->fade = 255;
             }
             data->canPlay = false;
@@ -110,9 +110,9 @@ void ofApp::playSecondSet() {
     for(auto data : dataset[1]) {
         if(data->mPos.distance(ofVec2f(mouseX,data->mPos.y)) < data->mSize) {
             if(data->canPlay) {
-                soda.set("s1")->volume(0.4, false);
-                soda.set("s1")->pan(data->mPos.x/float(ofGetWidth()), false);
-                soda.set("s1")->shift(ofMap(data->mPos.y,0,100,3,0.2));
+                float panValue = data->mPos.x/float(ofGetWidth());
+                float shiftValue = ofMap(data->mPos.y,0,100,3,0.2);
+                soda.set("s1")->volume(0.4)->pan(panValue)->shift(shiftValue)->play();
                 data->fade = 255;
             }
             data->canPlay = false;
@@ -126,9 +126,9 @@ void ofApp::playThirdSet() {
     for(auto data : dataset[2]) {
         if(data->mPos.distance(ofVec2f(mouseX,data->mPos.y)) < data->mSize) {
             if(data->canPlay) {
-                soda.set("s2")->volume(0.2, false);
-                soda.set("s2")->pan(data->mPos.x/float(ofGetWidth()), false);
-                soda.set("s2")->shift(ofMap(data->mPos.y,0,100,4,0.5));
+                float panValue = data->mPos.x/float(ofGetWidth());
+                float shiftValue = ofMap(data->mPos.y,0,100,4,0.5);
+                soda.set("s2")->volume(0.2)->pan(panValue)->shift(shiftValue)->play();
                 data->fade = 255;
             }
             data->canPlay = false;
