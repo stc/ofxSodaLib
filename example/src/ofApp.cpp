@@ -35,17 +35,14 @@ void ofApp::keyPressed(int key){}
 void ofApp::keyReleased(int key){}
 void ofApp::mouseMoved(int x, int y ){}
 void ofApp::mouseDragged(int x, int y, int button){
-    soda.set("mySynth")->volume(mouseX / float(ofGetWidth()), false);
-    soda.set("mySynth")->shift(mouseY / float(ofGetHeight()));
-    soda.set("myTexture")->volume(1 - mouseX / float(ofGetWidth()), false);
-    soda.set("myTexture")->shift(mouseY / float(ofGetHeight()));
+    soda.set("mySynth")->volume(mouseX / float(ofGetWidth()))->shift(mouseY / float(ofGetHeight()))->play();
+    soda.set("myTexture")->volume(1 - mouseX / float(ofGetWidth()))->shift(mouseY / float(ofGetHeight()))->play();
 }
 
 void ofApp::mousePressed(int x, int y, int button){
     cPosition = ofVec2f(x,y);
     cSize = 20;
-    soda.set("mySampler")->pan(mouseX / float(ofGetWidth()), false);
-    soda.set("mySampler")->shift(mouseY / float(ofGetHeight()));
+    soda.set("mySampler")->pan(mouseX / float(ofGetWidth()))->shift(mouseY / float(ofGetHeight()))->play();
 }
 
 void ofApp::mouseReleased(int x, int y, int button){
