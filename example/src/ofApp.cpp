@@ -19,12 +19,12 @@ void ofApp::draw(){
     ofDrawBitmapString("click & drag the mouse to interact",20,20);
     ofDrawBitmapString("----------------------------------",20,40);
     ofSetColor(255);
-    ofDrawBitmapString("mySampler pan: " + ofToString(soda.get("mySampler")->mPan),20,60);
-    ofDrawBitmapString("mySampler pitch-shift: " + ofToString(soda.get("mySampler")->mShift),20,80);
-    ofDrawBitmapString("mySynth volume: " + ofToString(soda.get("mySynth")->mVolume),20,100);
-    ofDrawBitmapString("mySynth pitch-shift: " + ofToString(soda.get("mySynth")->mShift),20,120);
-    ofDrawBitmapString("myTexture volume: " + ofToString(soda.get("myTexture")->mVolume),20,140);
-    ofDrawBitmapString("myTexture pitch-shift: " + ofToString(soda.get("myTexture")->mShift),20,160);
+    ofDrawLine(ofGetWidth()/2,ofGetHeight()/4,ofGetWidth()/2,ofGetHeight()-ofGetHeight()/4);
+    if(mouseX<ofGetWidth()/2) {
+        ofDrawBitmapString("NOISE TEXTURE", 100, ofGetHeight()/2);
+    } else {
+        ofDrawBitmapString("SYNTHESIS", ofGetWidth()/2+100, ofGetHeight()/2);
+    }
     
     ofSetColor(245, 58, 135);
     ofDrawCircle(cPosition,cSize);
@@ -35,8 +35,13 @@ void ofApp::keyPressed(int key){}
 void ofApp::keyReleased(int key){}
 void ofApp::mouseMoved(int x, int y ){}
 void ofApp::mouseDragged(int x, int y, int button){
-    soda.set("mySynth")->volume(mouseX / float(ofGetWidth()))->shift(mouseY / float(ofGetHeight()))->play();
-    soda.set("myTexture")->volume(1 - mouseX / float(ofGetWidth()))->shift(mouseY / float(ofGetHeight()))->play();
+    if(mouseX>ofGetWidth()/2) {
+        soda.set("mySynth")->pan(1)->volume(1)->depth(ofMap(mouseX,ofGetWidth()/2,ofGetWidth(),1,0))->shift(mouseY / float(ofGetHeight()))->play();
+        soda.set("myTexture")->volume(0);
+    } else {
+        soda.set("myTexture")->pan(0)->volume(0.5)->depth(ofMap(mouseX,ofGetWidth()/2,0,1,0))->shift(mouseY / float(ofGetHeight()))->play();
+        soda.set("mySynth")->volume(0);
+    }
 }
 
 void ofApp::mousePressed(int x, int y, int button){
