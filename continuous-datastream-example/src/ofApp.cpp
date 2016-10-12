@@ -4,17 +4,12 @@ void ofApp::setup(){
     int ticksPerBuffer = 8; // 8 * 64 = buffer len of 512
     ofSoundStreamSetup(2, 2, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
     
-    // create SodaLib. please refer to the underlying concepts,
-    // creation arguments & function details in the readme file
-    
     soda.init();
-    soda.clear();
     soda.createSynth("noise","triwave","C");
     soda.createSynth("harmonic","triwave","Eb");
     soda.createSynth("brownian","triwave","F");
     soda.createSynth("gesture","triwave","G");
     soda.createSynth("linear","triwave","A");
-    soda.save();
 }
 
 void ofApp::update(){

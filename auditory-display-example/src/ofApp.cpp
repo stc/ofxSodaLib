@@ -4,11 +4,10 @@ void ofApp::setup(){
     int ticksPerBuffer = 8; // 8 * 64 = buffer len of 512
     ofSoundStreamSetup(2, 2, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
     soda.init();
-    soda.clear();
-
+    
     // populate cells of the display
-    rows = 20;
-    cols = 10;
+    rows = 10;
+    cols = 5;
     int index = 0;
     
     for(int i=0; i<rows; i++) {
@@ -30,8 +29,6 @@ void ofApp::setup(){
         }
         cells.push_back(c);
     }
-    soda.save();
-    
 }
 
 void ofApp::update(){}

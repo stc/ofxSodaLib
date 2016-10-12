@@ -10,6 +10,7 @@ void ofxSodaLib::init() {
     pd.addReceiver(*this);
     pd.start();
     patch = pd.openPatch(pdFolder + "main.pd");
+    clear();
 }
 
 void ofxSodaLib::createCustomObject(string objectName) {
@@ -19,6 +20,7 @@ void ofxSodaLib::createCustomObject(string objectName) {
     pd.sendList("createCustomObject", myList);
     SodaObject* o = new SodaObject(objectName);
     objects.insert(make_pair(objectName,o));
+    save();
 }
 
 void ofxSodaLib::createCustomObject(string objectName, string customPatchName) {
@@ -28,6 +30,8 @@ void ofxSodaLib::createCustomObject(string objectName, string customPatchName) {
     pd.sendList("createCustomObject", myList);
     SodaObject* o = new SodaObject(objectName);
     objects.insert(make_pair(objectName,o));
+    save();
+
 }
 
 void ofxSodaLib::createSynth(string objectName, string type, string note) {
@@ -40,6 +44,7 @@ void ofxSodaLib::createSynth(string objectName, string type, string note) {
     pd.sendList("createSynth", myList);
     SodaObject* o = new SodaObject(objectName);
     objects.insert(make_pair(objectName,o));
+    save();
 }
 
 void ofxSodaLib::createSampler(string objectName, string fileName, int numberOfPolyphony) {
@@ -52,6 +57,7 @@ void ofxSodaLib::createSampler(string objectName, string fileName, int numberOfP
     pd.sendList("createSynth", myList);
     SodaObject* o = new SodaObject(objectName);
     objects.insert(make_pair(objectName,o));
+    save();
 }
 
 void ofxSodaLib::createTexture(string objectName, float resonance) {
@@ -62,6 +68,7 @@ void ofxSodaLib::createTexture(string objectName, float resonance) {
     pd.sendList("createTexture", myList);
     SodaObject* o = new SodaObject(objectName);
     objects.insert(make_pair(objectName,o));
+    save();
 }
 
 void ofxSodaLib::clear() {
@@ -117,6 +124,6 @@ void ofxSodaLib::audioRequested(float * output, int bufferSize, int nChannels) {
 }
  
 void ofxSodaLib::print(const std::string& message) {
-	cout << message << endl;
+	// cout << message << endl;
 }
 

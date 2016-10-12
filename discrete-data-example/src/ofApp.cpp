@@ -8,14 +8,11 @@ void ofApp::setup(){
     // creation arguments & function details in the readme file
     
     soda.init();
-    soda.clear();
     soda.createSampler("s0","sounds/s0.wav",10);
     soda.createSampler("s1","sounds/s1.wav",10);
     soda.createSampler("s2","sounds/s2.wav",10);
-    soda.save();
     
     // populate dataset with random data
-    
     vector<DataObject*> v1;
     for(int i=0; i<50; i++) { v1.push_back(new DataObject(ofVec2f(ofRandom(ofGetWidth()), ofRandom(100)))); }
     dataset.push_back(v1);
@@ -127,7 +124,7 @@ void ofApp::playThirdSet() {
         if(data->mPos.distance(ofVec2f(mouseX,data->mPos.y)) < data->mSize) {
             if(data->canPlay) {
                 float panValue = data->mPos.x/float(ofGetWidth());
-                float shiftValue = ofMap(data->mPos.y,0,100,4,0.5);
+                float shiftValue = ofMap(data->mPos.y,0,100,2,0.1);
                 soda.set("s2")->volume(0.2)->pan(panValue)->shift(shiftValue)->play();
                 data->fade = 255;
             }
