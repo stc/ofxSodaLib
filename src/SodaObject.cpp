@@ -36,12 +36,10 @@ SodaObject * SodaObject::depth(float depth) {
 }
 
 void SodaObject::play() {
-    List myList;
-    myList.addFloat(mShift);
-    myList.addFloat(mVolume);
-    myList.addFloat(mPan);
-    myList.addFloat(mDepth);
-    ofxSodaLib::pd.sendList(mName, myList);
+    ofxSodaLib::pd.sendFloat(mName + "-shift", mShift);
+    ofxSodaLib::pd.sendFloat(mName + "-vol", mVolume);
+    ofxSodaLib::pd.sendFloat(mName + "-pan", mPan);
+    ofxSodaLib::pd.sendFloat(mName + "-depth", mDepth);
 }
  
 SodaObject * SodaObject::pan(float pan) {
