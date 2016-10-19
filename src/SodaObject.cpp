@@ -6,15 +6,14 @@ SodaObject::SodaObject(string name) {
     mShift = 1;
     mVolume = 1;
     mDepth = -1; // disabled by default to save cpu
-    mPan = 0.5;
+    mPan.push_back(0.5);
+    // disable binaural panning by default to save cpu
+    mPan.push_back(-1);
+    mPan.push_back(-1);
 }
 
 SodaObject::SodaObject(string name, bool objNotFoundError) {
     cout << "Error, could not find Soda Object with name: " + name << endl;
-}
-
-void SodaObject::debug() {
-    cout << mName << " shift: " << mShift << " volume: " << mVolume << " pan: " << mPan << endl;
 }
 
 SodaObject * SodaObject::shift(float shift) {
@@ -30,20 +29,32 @@ SodaObject * SodaObject::volume(float volume) {
     return this;
 }
 
+SodaObject * SodaObject::pan(float pan) {
+    mPan[0] = ofClamp(pan,0,1);
+    mPan[1] = -1;
+    mPan[2] = -1;
+    return this;
+}
+
+SodaObject * SodaObject::pan(float azimuth, float distance, float elevation) {
+    mPan[0] = ofClamp(azimuth,0,1);
+    mPan[1] = ofClamp(distance,0,1);
+    mPan[2] = ofClamp(elevation,0,1);
+    return this;
+}
+
 SodaObject * SodaObject::depth(float depth) {
     mDepth = ofClamp(depth,0,1);
     return this;
 }
 
 void SodaObject::play() {
-    ofxSodaLib::pd.sendFloat(mName + "-shift", mShift);
-    ofxSodaLib::pd.sendFloat(mName + "-vol", mVolume);
-    ofxSodaLib::pd.sendFloat(mName + "-pan", mPan);
     ofxSodaLib::pd.sendFloat(mName + "-depth", mDepth);
+    List mList;
+    for( auto e : mPan) mList.addFloat(e);
+    ofxSodaLib::pd.sendList(mName + "-pan", mList);
+    ofxSodaLib::pd.sendFloat(mName + "-vol", mVolume);
+    ofxSodaLib::pd.sendFloat(mName + "-shift", mShift);
 }
  
-SodaObject * SodaObject::pan(float pan) {
-    mPan = ofClamp(pan,0,1);
-    return this;
-}
 

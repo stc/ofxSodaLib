@@ -2,10 +2,15 @@
 
 ofxPd ofxSodaLib::pd;
 
+extern "C" {
+    void earplug_tilde_setup();
+}
+
 void ofxSodaLib::init() {
     if(!pd.init( 2, 2, 44100, 8)) {
         OF_EXIT_APP(1);
     }
+    earplug_tilde_setup();
     pdFolder = "lib/";
     pd.addReceiver(*this);
     pd.start();
@@ -124,6 +129,6 @@ void ofxSodaLib::audioRequested(float * output, int bufferSize, int nChannels) {
 }
  
 void ofxSodaLib::print(const std::string& message) {
-	// cout << message << endl;
+	 // cout << message << endl;
 }
 

@@ -9,14 +9,14 @@ public:
     string mName;
     float mShift;
     float mVolume;
-    float mPan;
+    vector< float > mPan;
     float mDepth;
     
     SodaObject * shift(float shift);
     SodaObject * pan(float pan);
+    SodaObject * pan(float azimuth, float distance, float elevation);
     SodaObject * volume(float volume);
     SodaObject * depth(float depth);
     
     void play();
-    void debug();
 };
