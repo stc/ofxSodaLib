@@ -13,7 +13,10 @@ void ofxSodaLib::init() {
     }
     earplug_tilde_setup();
     lrshift_tilde_setup();
-    pdFolder = "lib/";
+    
+    string path = "";
+    ofDirectory dir(path);
+    pdFolder = dir.getAbsolutePath() + "/../../../lib/";
     pd.addReceiver(*this);
     pd.start();
     patch = pd.openPatch(pdFolder + "main.pd");
@@ -65,12 +68,11 @@ void ofxSodaLib::createFreezer(string objectName, string fileName) {
     save();
 }
 
-
 void ofxSodaLib::createSampler(string objectName, string fileName, int numberOfPolyphony) {
     List myList;
     myList.addSymbol("blocks/sampling/samplerGenerator");
     myList.addSymbol(objectName);
-    myList.addSymbol("../../" + fileName); // sound is in the "sounds" folder, relative to patch
+    myList.addSymbol(fileName);
     myList.addFloat(numberOfPolyphony);
     myList.addFloat(44100);
     pd.sendList("createSynth", myList);
@@ -143,6 +145,6 @@ void ofxSodaLib::audioRequested(float * output, int bufferSize, int nChannels) {
 }
  
 void ofxSodaLib::print(const std::string& message) {
-	 cout << message << endl;
+	 // cout << message << endl;
 }
 

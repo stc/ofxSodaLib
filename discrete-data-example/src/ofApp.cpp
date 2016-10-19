@@ -4,13 +4,14 @@ void ofApp::setup(){
     int ticksPerBuffer = 8; // 8 * 64 = buffer len of 512
     ofSoundStreamSetup(2, 2, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
     
-    // create SodaLib. please refer to the underlying concepts,
-    // creation arguments & function details in the readme file
+    string path = "sounds";
+    ofDirectory dir(path);
+    string absPath = dir.getAbsolutePath();
     
     soda.init();
-    soda.createSampler("s0","sounds/s0.wav",10);
-    soda.createSampler("s1","sounds/s1.wav",10);
-    soda.createSampler("s2","sounds/s2.wav",10);
+    soda.createSampler("s0",absPath + "/s0.wav",10);
+    soda.createSampler("s1",absPath + "/s1.wav",10);
+    soda.createSampler("s2",absPath + "/s2.wav",10);
     
     // populate dataset with random data
     vector<DataObject*> v1;

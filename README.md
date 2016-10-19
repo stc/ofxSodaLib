@@ -8,7 +8,7 @@
 
 ## Folder Structure
 
-The *lib* folder has everything that is related to the audio engine, it is a collection of [Pure Data](https://puredata.info/) patches. *main.pd* is called & opened upon every initialization. This patch handles the messages and synthesis parameters of the process. There are a few basic blocks that are generating and manipulating sounds based on the messages sent to them. The *lib* folder must be placed into your project's data folder.
+The *lib* folder has everything that is related to the audio engine, it is a collection of [Pure Data](https://puredata.info/) patches. *main.pd* is called & opened upon every initialization. This patch handles the messages and synthesis parameters of the process. There are a few basic blocks that are generating and manipulating sounds based on the messages sent to them. 
 
 ## Functions
 
