@@ -4,6 +4,7 @@ ofxPd ofxSodaLib::pd;
 
 extern "C" {
     void earplug_tilde_setup();
+    void lrshift_tilde_setup();
 }
 
 void ofxSodaLib::init() {
@@ -11,6 +12,7 @@ void ofxSodaLib::init() {
         OF_EXIT_APP(1);
     }
     earplug_tilde_setup();
+    lrshift_tilde_setup();
     pdFolder = "lib/";
     pd.addReceiver(*this);
     pd.start();
@@ -51,6 +53,18 @@ void ofxSodaLib::createSynth(string objectName, string type, string note) {
     objects.insert(make_pair(objectName,o));
     save();
 }
+
+void ofxSodaLib::createFreezer(string objectName, string fileName) {
+    List myList;
+    myList.addSymbol("blocks/freezing/freezeGenerator");
+    myList.addSymbol(objectName);
+    myList.addSymbol(fileName);
+    pd.sendList("createFreezer", myList);
+    SodaObject* o = new SodaObject(objectName);
+    objects.insert(make_pair(objectName,o));
+    save();
+}
+
 
 void ofxSodaLib::createSampler(string objectName, string fileName, int numberOfPolyphony) {
     List myList;
@@ -129,6 +143,6 @@ void ofxSodaLib::audioRequested(float * output, int bufferSize, int nChannels) {
 }
  
 void ofxSodaLib::print(const std::string& message) {
-	 // cout << message << endl;
+	 cout << message << endl;
 }
 

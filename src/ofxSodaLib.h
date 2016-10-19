@@ -17,6 +17,7 @@ public:
     void createSynth(string objectName, string type, string note);
     void createSampler(string objectName, string fileName, int numberOfPolyphony);
     void createTexture(string objectName, float resonance);
+    void createFreezer(string objectName, string fileName);
     void createCustomObject(string objectName);
     void createCustomObject(string objectName, string customPatchName);
     
