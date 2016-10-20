@@ -4,6 +4,7 @@ void ofApp::setup(){
     int ticksPerBuffer = 8; // 8 * 64 = buffer len of 512
     ofSoundStreamSetup(2, 2, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
     
+    // give absolute paths to soundfiles
     string path = "sounds";
     ofDirectory dir(path);
     string absPath = dir.getAbsolutePath();

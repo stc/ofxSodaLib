@@ -6,6 +6,7 @@ void ofApp::setup(){
     
     soda.init();
     
+    // give absolute paths to sound files
     string path = "sounds";
     ofDirectory dir(path);
     string absPath = dir.getAbsolutePath();
