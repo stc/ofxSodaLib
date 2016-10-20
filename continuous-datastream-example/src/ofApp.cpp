@@ -6,7 +6,6 @@ void ofApp::setup(){
     
     soda.init();
     
-    // give absolute paths to sound files
     string path = "sounds";
     ofDirectory dir(path);
     string absPath = dir.getAbsolutePath();
@@ -15,7 +14,7 @@ void ofApp::setup(){
     soda.createFreezer("harmonic", absPath + "/minorscale.wav");
     soda.createFreezer("brownian", absPath + "/minorscale.wav");
     soda.createFreezer("gesture", absPath + "/minorscale.wav");
-    soda.createFreezer("linear", absPath + "/minorcale.wav");
+    soda.createFreezer("linear", absPath + "/minorscale.wav");
 }
 
 void ofApp::update(){
@@ -60,8 +59,9 @@ void ofApp::update(){
 void ofApp::draw(){
     ofBackground(34);
     listenToAll(100,200);
-    
-    soda.set("freeze")->shift(ofGetMouseX()/float(ofGetWidth()))->play();
+    ofSetColor(140);
+    string s = "hover all the streams to listen to their actual state\nposition of playback is controlled by y value";
+    ofDrawBitmapString(s, 40, 40);
     
     noiseData.drawNoiseData(500,200);
     harmonicData.drawHarmonicData(500,300);
