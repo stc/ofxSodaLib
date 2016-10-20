@@ -5,11 +5,16 @@ void ofApp::setup(){
     ofSoundStreamSetup(2, 2, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
     
     soda.init();
-    soda.createSynth("noise","triwave","C");
-    soda.createSynth("harmonic","triwave","Eb");
-    soda.createSynth("brownian","triwave","F");
-    soda.createSynth("gesture","triwave","G");
-    soda.createSynth("linear","triwave","A");
+    
+    string path = "sounds";
+    ofDirectory dir(path);
+    string absPath = dir.getAbsolutePath();
+    
+    soda.createFreezer("noise", absPath + "/minorscale.wav");
+    soda.createFreezer("harmonic", absPath + "/minorscale.wav");
+    soda.createFreezer("brownian", absPath + "/minorscale.wav");
+    soda.createFreezer("gesture", absPath + "/minorscale.wav");
+    soda.createFreezer("linear", absPath + "/minorcale.wav");
 }
 
 void ofApp::update(){
@@ -20,7 +25,7 @@ void ofApp::update(){
     linearData.update();
     switchCursor();
     
-    // handle synths based on the data stream values.
+    // handle sound positions based on the data stream values.
     // would be much more effective with for loops & vectors
     // this example stands here for clarity
     
@@ -54,6 +59,8 @@ void ofApp::update(){
 void ofApp::draw(){
     ofBackground(34);
     listenToAll(100,200);
+    
+    soda.set("freeze")->shift(ofGetMouseX()/float(ofGetWidth()))->play();
     
     noiseData.drawNoiseData(500,200);
     harmonicData.drawHarmonicData(500,300);
