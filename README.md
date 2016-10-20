@@ -20,12 +20,12 @@ See the "Example" project for more details on how to initiate & address Soda obj
 
 SodaLib's purpose is to create a high level set of sonic tools that is focusing on representing data instead of musical concepts. Thus, you won't see traditional dsp building blocks like filters, effects etc here. While visualisation has really advanced concepts for interpreting highly complex multidimensional data, sonification lacks most of these, and what's out there are mainly accessible to creators with high-level musical (or dsp related) knowledge and experience. At the moment, SodaLib targets two key concepts of Sonification thus trying to make it available for a wider field of practitioners:
     
-* Event based sonification (earcons, auditory icons, etc) >> the *sampling* block comes handy when dealing with this concept, see *discrete-data-example*
-* Parameter mapping (multidimensional, realtime sensory data, etc) >> the *synthesis* block comes handy when dealing with this concept, see *continuous-datastream-example*
+* Event based sonification (earcons, auditory icons, etc) >> The system is playing back individual short sound samples with customizable number of polyphony. See *discrete-data-example* 
+* Parameter mapping (multidimensional, realtime sensory data, etc) >> The system is playing back a sound sample, where the playback position is controlled by different type of data values. The method is similar to slit scanning of images: since the spectrum is "frozen", the pitch remains the same, independently from the speed of playback. See *continuous-datastream-example*
 
 *auditory-display-example* shows how to create and access several hundreds of soda objects with just a few lines of code and use them for special sonification purposes, in this case, audio-cells of an (auditory) display with custom resolution: the volume of each cell is mapped to the cell's brightness value (loading of this example might take a while)
 
-*binaural-positioning-example* shows how to position sound sources around in space using binaural filtering based on the [earplug~](https://puredata.info/downloads/earplug) external
+*binaural-positioning-example* is an experiment for spatializing sound for headphones (thus, mobile apps & VR) using binaural filtering based on the [earplug~](https://puredata.info/downloads/earplug) external
 
 The following projects are made with SodaLib so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) 
 
