@@ -26,7 +26,4 @@ class ofApp : public ofBaseApp{
         void audioRequested(float * output, int bufferSize, int nChannels);
     
         ofxSodaLib soda;
-    
-        ofVec2f cPosition;
-        float cSize;
 };
