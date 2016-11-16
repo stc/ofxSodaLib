@@ -29,6 +29,8 @@ SodaLib's purpose is to create a high level set of sonic tools that is focusing 
 
 The following projects are made with SodaLib so far: [SoundBow](http://www.binaura.net/apps/soundbow/), [SphereTones] (http://www.binaura.net/spheretones), [Echo](https://github.com/stc/echo) 
 
+Download modidied [iOS examples] (http://binaura.net/stc/iOS.zip)  for demo purposes
+
 -
 
 All code is under GPLv3 Licensed unless otherwise stated. (c) Agoston Nagy / 2016

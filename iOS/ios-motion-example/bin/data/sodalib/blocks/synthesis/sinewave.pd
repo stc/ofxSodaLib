@@ -1,7 +1,0 @@
-#N canvas 422 234 830 577 12;
-#X obj 85 46 inlet;
-#X obj 105 333 outlet~;
-#X text 76 12 sine;
-#X obj 102 187 osc~;
-#X connect 0 0 3 0;
-#X connect 3 0 1 0;
